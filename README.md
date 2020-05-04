@@ -19,3 +19,5 @@
 7、打开浏览器，输入 http://127.0.0.1:18902/demoproject/test/get/+你创建的表项的id
 
 8、如果能够显示数据在网页上，证明部署成功
+
+9、如果想要运行项目，直接run BackendApplication文件即可
