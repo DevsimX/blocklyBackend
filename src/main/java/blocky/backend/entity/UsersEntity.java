@@ -1,5 +1,12 @@
 package blocky.backend.entity;
 
+import blocky.backend.util.JavaWebToken;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class UsersEntity {
 
     private long id;
@@ -67,13 +74,24 @@ public class UsersEntity {
         return this.role == 0? "teacher":"student";
     }
 
+    private String calculateToken(){
+        String token = "";
+        if(id != 0){
+            Map<String, Object> claims = new HashMap<>();
+            Date now = new Date();
+            claims.put("username",username);
+            claims.put("time",new SimpleDateFormat("yyyyMMddHHmmss").format(now));
+            token = JavaWebToken.createJavaWebToken(claims);
+        }
+        return token;
+    }
+
     @Override
     public String toString() {
-        String token = "abcdefgm";
         return "{" +
                 "id:" + id +
                 ", username:'" + username + '\'' +
-                ", token:'" + token + '\'' +
+                ", token:'" + calculateToken() + '\'' +
                 ", role:'" + transferRoleFromIntToString() + '\'' +
                 ", name:'" + name + '\'' +
                 ", email:'" + email + '\'' +
