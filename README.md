@@ -13,15 +13,9 @@
 
 4、运行sql文件夹下的两个sql文件
 
-5、可以在数据库当中的test数据表当中随意创建一个表项用于测试
+5、运行位于backend/src/main/java/blocky/backend下的BackendApplication文件即可运行该项目
 
-6、运行位于backend/src/main/java/blocky/backend下的BackendApplication文件
-
-7、打开浏览器，输入 http://127.0.0.1:18902/demoproject/test/get/+你创建的表项的id
-
-8、如果能够显示数据在网页上，证明部署成功
-
-9、如果想要运行项目，直接run BackendApplication文件即可
+6、暂时没有测试接口，如果想测试可以在专业测试api的软件中进行测试，测试接口地址可以用下面的本地接口地址，接口规则见接口文档
 
 ##
 ##本地接口地址
