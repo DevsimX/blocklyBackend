@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 配置文件的根元素 -->
+<mapper namespace="blocky.backend.dao.GetSceneDao">
+    <resultMap id="sceneListMap" type="blocky.backend.entity.SceneListEntity">
+        <id property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="description" column="description" />
+        <result property="level_number" column="level_number" />
+        <result property="create_id" column="create_id" />
+        <result property="create_user" column="name" />
+    </resultMap>
+    <!-- 根据主键查询-->
+    <select id="getSceneList" resultMap="sceneListMap">
+        select  scene.id,
+               scene.title,
+               scene.description,
+               scene.level_number,
+               scene.create_id,
+               users.name
+        from scene,users
+        where scene.create_id = users.id
+    </select>
+    <resultMap id="sceneMap" type="blocky.backend.entity.SceneEntity">
+        <id property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="description" column="description" />
+        <result property="level_number" column="level_number" />
+        <result property="create_id" column="create_id" />
+        <result property="create_user" column="name" />
+        <result property="objects" column="objects" />
+        <result property="script" column="script" />
+        <result property="three_id" column="three_id" />
+        <result property="l1" column="l1" />
+        <result property="l2" column="l2" />
+        <result property="l3" column="l3" />
+        <result property="l4" column="l4" />
+        <result property="l5" column="l5" />
+        <result property="l6" column="l6" />
+        <result property="l7" column="l7" />
+        <result property="l8" column="l8" />
+    </resultMap>
+    <select id="getSceneById" resultMap="sceneMap">
+        select scene.*,users.name
+        from scene,users
+        where scene.id = #{id} and scene.create_id = users.id
+    </select>
+    <resultMap id="submittedSceneMap" type="blocky.backend.entity.SubmittedSceneEntity">
+        <id property="id" column="submit_id" />
+        <result property="scene_title" column="title" />
+        <result property="scene_id" column="scene_id" />
+        <result property="status" column="status" />
+        <result property="score" column="score" />
+        <result property="teacher_id" column="teacher_id" />
+        <result property="teacher_name" column="name" />
+        <result property="result" column="result" />
+    </resultMap>
+    <select id="getSubmittedSceneByStudentId" resultMap="submittedSceneMap">
+        select submits.id as submit_id,
+               scene.id as scene_id,
+               scene.title,
+               submits.status,
+               submits.score,
+               users.name,
+               submits.teacher_id,
+               submits.result
+        from scene,users,history,submits
+        where student_id = #{student_id} and submits.history_id = history.id and submits.teacher_id = users.id and history.scene_id = scene.id
+    </select>
+    <select id="getHistoryBySubmitId" resultType="blocky.backend.entity.HistoryEntity">
+        select history.*
+        from submits,history
+        where submits.id = #{submit_id} and history.id = submits.history_id
+    </select>
+    <select id="getHistoryByStudentId" resultType="blocky.backend.entity.HistoryEntity">
+        select *
+        from history
+        where user_id = #{student_id}
+        order by mt DESC
+    </select>
+    <select id="getSubmitBySubmitId" resultType="blocky.backend.entity.SubmitEntity">
+        select submits.*
+        from submits
+        where submits.id = #{submit_id}
+    </select>
+    <select id="getSceneBySubmitId" resultMap="sceneMap">
+        select scene.*
+        from submits,scene,history
+        where submits.id = #{submit_id} and submits.history_id = history.id and history.scene_id = scene.id
+    </select>
+    <select id="getPartSceneById" resultMap="sceneMap">
+        select *
+        from scene
+        where scene.id = #{scene_id}
+    </select>
+    <select id="searchStudentId" resultType="int">
+        select count(*)
+        from users
+        where users.id = #{student_id} and users.role = 1
+    </select>
+</mapper>

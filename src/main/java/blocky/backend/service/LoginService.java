@@ -9,17 +9,8 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     @Autowired
     private LoginDao loginDao;
-    private UsersEntity searcherResultByIDAndPassword;
 
-    public void searchUserByIDAndPassword(String username,String password){
-        searcherResultByIDAndPassword = loginDao.searchUserByIDAndPassword(username,password);
-    }
-
-    public UsersEntity getSearcherResultByIDAndPassword() {
-        return searcherResultByIDAndPassword;
-    }
-
-    public String getLoginResult(){
-        return searcherResultByIDAndPassword != null?"ok":"Invalid username or password";
+    public UsersEntity getSearcherResultByIDAndPassword(String username,String password) {
+        return loginDao.searchUserByIDAndPassword(username,password);
     }
 }

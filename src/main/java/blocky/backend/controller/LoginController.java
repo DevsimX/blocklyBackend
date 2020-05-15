@@ -1,5 +1,6 @@
 package blocky.backend.controller;
 
+import blocky.backend.entity.UsersEntity;
 import blocky.backend.service.LoginService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +19,18 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("/users/login")
-    public Map<String,Object> check(String username, String password, HttpServletResponse response) throws IOException {
+    public Map<String,Object> login(String username, String password, HttpServletResponse response) throws IOException {
         Gson gson = new Gson();
         Map<String,Object> result = new HashMap<>();
-        loginService.searchUserByIDAndPassword(username,password);
-        result.put("msg",loginService.getLoginResult());
-        if(loginService.getSearcherResultByIDAndPassword() != null)
-            result.put("user",gson.fromJson(loginService.getSearcherResultByIDAndPassword().toString(),result.getClass()));
-        else
+
+        UsersEntity usersEntity = loginService.getSearcherResultByIDAndPassword(username,password);
+        if(usersEntity == null){
+            result.put("msg","Invalid username or password");
             response.setStatus(400);
+        }else {
+            result.put("msg","ok");
+            result.put("user",gson.fromJson(usersEntity.toString(),result.getClass()));
+        }
         return result;
     }
 }
