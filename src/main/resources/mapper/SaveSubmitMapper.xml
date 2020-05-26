@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 配置文件的根元素 -->
+<mapper namespace="blocky.backend.dao.SaveSubmitDao">
+    <select id="searchHistoryId" resultType="java.lang.Integer">
+        select history.id
+        from history
+        where history.action = #{action}
+          and history.scene_id = #{scene_id}
+          and history.user_id = #{student_id}
+    </select>
+    <select id="searchTeacherId" resultType="java.lang.Integer">
+        select scene.create_id
+        from scene
+        where scene.id = #{scene_id}
+    </select>
+    <insert id="insertSubmit">
+        insert into submits(student_id,teacher_id,status,history_id)
+        VALUES (#{student_id},#{teacher_id},#{status},#{history_id})
+    </insert>
+</mapper>

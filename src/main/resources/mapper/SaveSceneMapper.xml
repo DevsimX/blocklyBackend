@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 配置文件的根元素 -->
+<mapper namespace="blocky.backend.dao.SaveSceneDao">
+    <insert id="saveScene">
+        insert into scene(title, create_id, script, three_id, l1, l2, l3, l4, l5, l6, l7, l8, description, level_number, objects)
+        VALUES (#{title},#{create_id},#{script},#{three_id},#{l1},#{l2},#{l3},#{l4},#{l5},#{l6},#{l7},#{l8},#{description},#{level_number},#{objects})
+    </insert>
+</mapper>

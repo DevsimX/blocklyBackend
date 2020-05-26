@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 配置文件的根元素 -->
+<mapper namespace="blocky.backend.dao.SaveHistoryDao">
+    <insert id="saveHistory">
+        insert into history(user_id, scene_id, script, objects, level,action)
+        VALUES (#{user_id},#{scene_id},#{script},#{objects},#{level},#{action})
+    </insert>
+</mapper>
