@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 配置文件的根元素 -->
+<mapper namespace="blocky.backend.dao.SubmitEvaluationDao">
+<update id="submitEvaluation">
+    update submits set submits.result = #{feedback}, submits.score = #{score}
+    where submits.history_id = #{history_id} and submits.student_id = #{student_id}
+</update>
+</mapper>

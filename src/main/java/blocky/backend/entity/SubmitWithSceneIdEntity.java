@@ -1,6 +1,6 @@
 package blocky.backend.entity;
 
-public class SubmitEntity {
+public class SubmitWithSceneIdEntity {
     private int id;
     private int student_id;
     private int teacher_id;
@@ -8,6 +8,7 @@ public class SubmitEntity {
     private int score;
     private String result;
     private int history_id;
+    private int scene_id;
 
     public int getId() {
         return id;
@@ -15,6 +16,22 @@ public class SubmitEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getStudent_id() {
+        return student_id;
+    }
+
+    public void setStudent_id(int student_id) {
+        this.student_id = student_id;
+    }
+
+    public int getTeacher_id() {
+        return teacher_id;
+    }
+
+    public void setTeacher_id(int teacher_id) {
+        this.teacher_id = teacher_id;
     }
 
     public int getStatus() {
@@ -41,22 +58,6 @@ public class SubmitEntity {
         this.result = result;
     }
 
-    public int getStudent_id() {
-        return student_id;
-    }
-
-    public void setStudent_id(int student_id) {
-        this.student_id = student_id;
-    }
-
-    public int getTeacher_id() {
-        return teacher_id;
-    }
-
-    public void setTeacher_id(int teacher_id) {
-        this.teacher_id = teacher_id;
-    }
-
     public int getHistory_id() {
         return history_id;
     }
@@ -65,16 +66,11 @@ public class SubmitEntity {
         this.history_id = history_id;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id=" + id +
-                ", student_id=" + student_id +
-                ", teacher_id=" + teacher_id +
-                ", status=" + status +
-                ", score=" + score +
-                ", result='" + result + '\'' +
-                ", history_id=" + history_id +
-                '}';
+    public int getScene_id() {
+        return scene_id;
+    }
+
+    public void setScene_id(int scene_id) {
+        this.scene_id = scene_id;
     }
 }

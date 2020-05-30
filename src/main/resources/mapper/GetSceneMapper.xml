@@ -79,7 +79,16 @@
         where user_id = #{student_id}
         order by mt DESC
     </select>
-    <select id="getSubmitBySubmitId" resultType="blocky.backend.entity.SubmitEntity">
+    <resultMap id="submitMap" type="blocky.backend.entity.SubmitEntity">
+        <id property="id" column="id" />
+        <result property="student_id" column="student_id" />
+        <result property="teacher_id" column="teacher_id" />
+        <result property="status" column="status" />
+        <result property="score" column="score" />
+        <result property="result" column="result" />
+        <result property="history_id" column="history_id" />
+    </resultMap>
+    <select id="getSubmitBySubmitId" resultMap="submitMap">
         select submits.*
         from submits
         where submits.id = #{submit_id}
