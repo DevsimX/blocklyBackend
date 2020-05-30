@@ -1,7 +1,7 @@
 package blocky.backend.service;
 
 import blocky.backend.dao.GetSubmitDao;
-import blocky.backend.entity.SubmitWithSceneIdEntity;
+import blocky.backend.entity.SubmitWithSceneIdTitleStudentNameEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class GetSubmitService {
             result.put("msg","teacher not found");
         }else {
             result.put("msg","ok");
-            List<SubmitWithSceneIdEntity> submitEntityList;
+            List<SubmitWithSceneIdTitleStudentNameEntity> submitEntityList;
             submitEntityList = getSubmitDao.getSubmitByTeacherId(teacher_id);
             result.put("data",submitEntityList);
         }

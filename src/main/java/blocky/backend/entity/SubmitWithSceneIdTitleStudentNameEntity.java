@@ -1,6 +1,6 @@
 package blocky.backend.entity;
 
-public class SubmitWithSceneIdEntity {
+public class SubmitWithSceneIdTitleStudentNameEntity {
     private int id;
     private int student_id;
     private int teacher_id;
@@ -9,6 +9,8 @@ public class SubmitWithSceneIdEntity {
     private String result;
     private int history_id;
     private int scene_id;
+    private String title;
+    private String student_name;
 
     public int getId() {
         return id;
@@ -72,5 +74,21 @@ public class SubmitWithSceneIdEntity {
 
     public void setScene_id(int scene_id) {
         this.scene_id = scene_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStudent_name() {
+        return student_name;
+    }
+
+    public void setStudent_name(String student_name) {
+        this.student_name = student_name;
     }
 }
