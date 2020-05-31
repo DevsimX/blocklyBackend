@@ -19,6 +19,24 @@ public class SceneEntity {
     private String objects;
     private String create_user;
 
+    public SceneEntity(){}
+
+    public SceneEntity(String title, int create_id, int three_id, String l1, String l2, String l3, String l4, String l5, String l6, String l7, String l8, String description, int level_number) {
+        this.title = title;
+        this.create_id = create_id;
+        this.three_id = three_id;
+        this.l1 = l1;
+        this.l2 = l2;
+        this.l3 = l3;
+        this.l4 = l4;
+        this.l5 = l5;
+        this.l6 = l6;
+        this.l7 = l7;
+        this.l8 = l8;
+        this.description = description;
+        this.level_number = level_number;
+    }
+
     public String getTitle() {
         return title;
     }

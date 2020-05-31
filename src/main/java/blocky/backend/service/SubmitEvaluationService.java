@@ -17,6 +17,6 @@ public class SubmitEvaluationService {
                                     int score,
                                     String feedback){
         int history_id = saveSubmitDao.searchHistoryId(student_id,scene_id,"submit");
-        return submitEvaluationDao.submitEvaluation(history_id,student_id,score,feedback) > 0;
+        return submitEvaluationDao.submitEvaluation(history_id,student_id,score,2,feedback) > 0;
     }
 }

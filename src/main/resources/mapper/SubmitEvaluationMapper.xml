@@ -4,7 +4,7 @@
 <!-- 配置文件的根元素 -->
 <mapper namespace="blocky.backend.dao.SubmitEvaluationDao">
 <update id="submitEvaluation">
-    update submits set submits.result = #{feedback}, submits.score = #{score}
+    update submits set submits.result = #{feedback}, submits.score = #{score}, submits.status = #{status}
     where submits.history_id = #{history_id} and submits.student_id = #{student_id}
 </update>
 </mapper>

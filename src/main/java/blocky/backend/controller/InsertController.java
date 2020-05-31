@@ -1,4 +1,5 @@
 package blocky.backend.controller;
+import blocky.backend.entity.SceneEntity;
 import blocky.backend.service.SaveHistoryService;
 import blocky.backend.service.SaveSceneService;
 import blocky.backend.service.SaveSubmitService;
@@ -23,7 +24,6 @@ public class InsertController {
     @PostMapping("/insert/saveScene")
     public Map<String,Object> saveScene(String title,
                                         int create_id,
-                                        String script,
                                         int three_id,
                                         String l1,
                                         String l2,
@@ -35,11 +35,12 @@ public class InsertController {
                                         String l8,
                                         String description,
                                         int level_number,
-                                        String objects,
                                         HttpServletResponse response
                                         ){
         Map<String,Object> result = new HashMap<>();
-        if(saveSceneService.saveScene(title, create_id, script, three_id, l1, l2, l3, l4, l5, l6, l7, l8, description, level_number, objects)){
+        SceneEntity sceneEntity = new SceneEntity(title, create_id, three_id, l1, l2, l3, l4, l5, l6, l7, l8, description, level_number);
+        if(saveSceneService.saveScene(sceneEntity)){
+            result.put("scene_id",sceneEntity.getId());
             result.put("msg","ok");
         }else {
             result.put("msg","Database operations fail");

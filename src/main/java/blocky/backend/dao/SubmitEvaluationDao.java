@@ -8,5 +8,6 @@ public interface SubmitEvaluationDao {
     int submitEvaluation(@Param(value = "history_id")int history_id,
                          @Param(value = "student_id")int student_id,
                          @Param(value = "score")int score,
+                         @Param(value = "status")int status,
                          @Param(value = "feedback")String feedback);
 }
