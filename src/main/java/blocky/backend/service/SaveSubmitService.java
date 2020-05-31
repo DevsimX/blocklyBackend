@@ -16,4 +16,8 @@ public class SaveSubmitService {
 
         return saveSubmitDao.insertSubmit(student_id,teacher_id,status,history_id) > 0;
     }
+
+    public boolean checkWhetherSubmit(int student_id,int scene_id){
+        return saveSubmitDao.checkWhetherSubmit(student_id,scene_id,"submit") > 0;
+    }
 }

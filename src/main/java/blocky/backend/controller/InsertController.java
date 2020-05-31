@@ -77,7 +77,10 @@ public class InsertController {
                                           HttpServletResponse response
     ){
         Map<String,Object> result = new HashMap<>();
-        if(saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects) && saveSubmitService.saveSubmit(student_id,scene_id,status)){
+        if(saveSubmitService.checkWhetherSubmit(student_id,scene_id)){
+            result.put("msg","Already submitted");
+            response.setStatus(400);
+        }else if(saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects) && saveSubmitService.saveSubmit(student_id,scene_id,status)){
             result.put("msg","ok");
         }else {
             result.put("msg","Database operations fail");

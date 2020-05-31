@@ -16,4 +16,8 @@ public interface SaveSubmitDao {
                         @Param(value = "action")String action);
 
     int searchTeacherId(@Param(value = "scene_id")int scene_id);
+
+    int checkWhetherSubmit(@Param(value = "student_id")int student_id,
+                           @Param(value = "scene_id")int scene_id,
+                           @Param(value = "action")String action);
 }
