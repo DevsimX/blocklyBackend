@@ -108,4 +108,9 @@
         from users
         where users.id = #{student_id} and users.role = 1
     </select>
+    <select id="getSceneByTeacherId" resultMap="sceneMap">
+        select scene.*
+        from scene
+        where scene.create_id = #{teacher_id}
+    </select>
 </mapper>

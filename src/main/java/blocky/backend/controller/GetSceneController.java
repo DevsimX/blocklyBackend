@@ -75,4 +75,13 @@ public class GetSceneController {
         }
         return result;
     }
+    @GetMapping("/scenes/getSceneByTeacherId")
+    public Map<String,Object> getSceneByTeacherId(int teacher_id, HttpServletResponse response) throws IOException {
+
+        Map<String,Object> result = getSceneService.getSceneByTeacherId(teacher_id);
+        if(!result.containsValue("ok")){
+            response.setStatus(400);
+        }
+        return result;
+    }
 }

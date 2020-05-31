@@ -25,4 +25,6 @@ public interface GetSceneDao {
     SceneEntity getPartSceneById(@Param(value = "scene_id") int scene_id);
 
     int searchStudentId(@Param(value = "student_id") int student_id);
+
+    List<SceneEntity> getSceneByTeacherId(@Param(value = "teacher_id") int teacher_id);
 }

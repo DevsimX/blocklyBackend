@@ -1,6 +1,7 @@
 package blocky.backend.service;
 
 import blocky.backend.dao.GetSceneDao;
+import blocky.backend.dao.GetSubmitDao;
 import blocky.backend.entity.*;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.*;
 public class GetSceneService {
     @Autowired
     private GetSceneDao getSceneDao;
+    @Autowired
+    private GetSubmitDao getSubmitDao;
 
     public List<SceneListEntity> getSceneList(){
         return getSceneDao.getSceneList();
@@ -56,6 +59,20 @@ public class GetSceneService {
         }
         return result;
     }
+
+    public Map<String,Object> getSceneByTeacherId(int teacher_id){
+        Map<String,Object> result = new HashMap<>();
+        if(getSubmitDao.searchTeacherByTeacherId(teacher_id) == 0){
+            result.put("msg","teacher not found");
+        }else {
+            List<SceneEntity> sceneEntityList = getSceneDao.getSceneByTeacherId(teacher_id);
+            result.put("list",sceneEntityList);
+            result.put("msg","ok");
+        }
+        return result;
+    }
+
+
 
     public Boolean searchStudentByStudentId(int student_id){
         return getSceneDao.searchStudentId(student_id) != 0;
