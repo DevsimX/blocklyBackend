@@ -11,6 +11,14 @@ public interface SaveSubmitDao {
                      @Param(value = "history_id")int history_id
                      );
 
+    int insertSubmitAndScoreAndResult(@Param(value = "student_id")int student_id,
+                                      @Param(value = "teacher_id")int teacher_id,
+                                      @Param(value = "status")int status,
+                                      @Param(value = "history_id")int history_id,
+                                      @Param(value = "score")int score,
+                                      @Param(value = "result")String result
+                                      );
+
     int searchHistoryId(@Param(value = "student_id")int student_id,
                         @Param(value = "scene_id")int scene_id,
                         @Param(value = "action")String action);

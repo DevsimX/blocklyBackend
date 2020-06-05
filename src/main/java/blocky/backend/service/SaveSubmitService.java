@@ -17,6 +17,14 @@ public class SaveSubmitService {
         return saveSubmitDao.insertSubmit(student_id,teacher_id,status,history_id) > 0;
     }
 
+    public boolean saveSubmitAndScoreAndResult(int student_id,int scene_id,int status,int score,String result){
+        int history_id = saveSubmitDao.searchHistoryId(student_id,scene_id,"submit");
+
+        int teacher_id = saveSubmitDao.searchTeacherId(scene_id);
+
+        return saveSubmitDao.insertSubmitAndScoreAndResult(student_id,teacher_id,status,history_id,score,result) > 0;
+    }
+
     public boolean checkWhetherSubmit(int student_id,int scene_id){
         return saveSubmitDao.checkWhetherSubmit(student_id,scene_id,"submit") > 0;
     }

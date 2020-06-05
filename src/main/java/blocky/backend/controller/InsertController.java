@@ -75,18 +75,27 @@ public class InsertController {
                                           int level,
                                           String objects,
                                           int status,
+                                          int check_way,
+                                          String score,
+                                          String result,
                                           HttpServletResponse response
     ){
-        Map<String,Object> result = new HashMap<>();
+        Map<String,Object> resultMap = new HashMap<>();
         if(saveSubmitService.checkWhetherSubmit(student_id,scene_id)){
-            result.put("msg","Already submitted");
+            resultMap.put("msg","Already submitted");
             response.setStatus(400);
-        }else if(saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects) && saveSubmitService.saveSubmit(student_id,scene_id,status)){
-            result.put("msg","ok");
         }else {
-            result.put("msg","Database operations fail");
-            response.setStatus(400);
+            if(check_way == 0 && saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects)
+                    && saveSubmitService.saveSubmitAndScoreAndResult(student_id,scene_id,status,Integer.parseInt(score),result))
+                resultMap.put("msg","ok");
+            else if(check_way == 1 && saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects)
+                    && saveSubmitService.saveSubmit(student_id,scene_id,status))
+                resultMap.put("msg","ok");
+            else {
+                resultMap.put("msg","Database operations fail");
+                response.setStatus(400);
+            }
         }
-        return result;
+        return resultMap;
     }
 }

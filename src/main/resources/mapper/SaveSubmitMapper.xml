@@ -19,6 +19,10 @@
         insert into submits(student_id,teacher_id,status,history_id)
         VALUES (#{student_id},#{teacher_id},#{status},#{history_id})
     </insert>
+    <insert id="insertSubmitAndScoreAndResult">
+        insert into submits(student_id,teacher_id,status,history_id,score,result)
+        VALUES (#{student_id},#{teacher_id},#{status},#{history_id},#{score},#{result})
+    </insert>
     <select id="checkWhetherSubmit" resultType="int">
         select count(*)
         from history
