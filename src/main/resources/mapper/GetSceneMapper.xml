@@ -10,6 +10,8 @@
         <result property="level_number" column="level_number" />
         <result property="create_id" column="create_id" />
         <result property="create_user" column="name" />
+        <result property="picture" column="picture" />
+        <result property="check_way" column="check_way" />
     </resultMap>
     <!-- 根据主键查询-->
     <select id="getSceneList" resultMap="sceneListMap">
@@ -18,6 +20,8 @@
                scene.description,
                scene.level_number,
                scene.create_id,
+               scene.picture,
+               scene.check_way,
                users.name
         from scene,users
         where scene.create_id = users.id
@@ -40,6 +44,8 @@
         <result property="l6" column="l6" />
         <result property="l7" column="l7" />
         <result property="l8" column="l8" />
+        <result property="picture" column="picture" />
+        <result property="check_way" column="check_way" />
     </resultMap>
     <select id="getSceneById" resultMap="sceneMap">
         select scene.*,users.name
@@ -55,6 +61,8 @@
         <result property="teacher_id" column="teacher_id" />
         <result property="teacher_name" column="name" />
         <result property="result" column="result" />
+        <result property="check_way" column="check_way" />
+        <result property="picture" column="picture" />
     </resultMap>
     <select id="getSubmittedSceneByStudentId" resultMap="submittedSceneMap">
         select submits.id as submit_id,
@@ -64,7 +72,9 @@
                submits.score,
                users.name,
                submits.teacher_id,
-               submits.result
+               submits.result,
+               scene.check_way,
+               scene.picture
         from scene,users,history,submits
         where student_id = #{student_id} and submits.history_id = history.id and submits.teacher_id = users.id and history.scene_id = scene.id
     </select>

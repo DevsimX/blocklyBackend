@@ -38,10 +38,11 @@ public class UpdateController {
     public Map<String,Object> saveObjectsAndScript(int scene_id,
                                                String objects,
                                                String script,
+                                               String picture,
                                                HttpServletResponse response
     ){
         Map<String,Object> result = new HashMap<>();
-        if(saveObjectsAndScriptService.saveObjectsAndScript(scene_id,objects,script)){
+        if(saveObjectsAndScriptService.saveObjectsAndScript(scene_id,objects,script,picture)){
             result.put("msg","ok");
         }else {
             response.setStatus(400);

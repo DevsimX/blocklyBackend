@@ -35,10 +35,11 @@ public class InsertController {
                                         String l8,
                                         String description,
                                         int level_number,
+                                        int check_way,
                                         HttpServletResponse response
                                         ){
         Map<String,Object> result = new HashMap<>();
-        SceneEntity sceneEntity = new SceneEntity(title, create_id, three_id, l1, l2, l3, l4, l5, l6, l7, l8, description, level_number);
+        SceneEntity sceneEntity = new SceneEntity(title, create_id, three_id, l1, l2, l3, l4, l5, l6, l7, l8, description, level_number,check_way);
         if(saveSceneService.saveScene(sceneEntity)){
             result.put("scene_id",sceneEntity.getId());
             result.put("msg","ok");

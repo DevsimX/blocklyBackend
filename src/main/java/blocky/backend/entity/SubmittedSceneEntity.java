@@ -9,6 +9,8 @@ public class SubmittedSceneEntity {
     private int teacher_id;
     private String teacher_name;
     private String result;
+    private int check_way;
+    private String picture;
 
     public int getId() {
         return id;
@@ -72,5 +74,21 @@ public class SubmittedSceneEntity {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public int getCheck_way() {
+        return check_way;
+    }
+
+    public void setCheck_way(int check_way) {
+        this.check_way = check_way;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }

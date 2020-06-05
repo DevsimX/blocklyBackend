@@ -16,12 +16,15 @@ public class SceneEntity {
     private String l8;
     private String description;
     private int level_number;
+    private int check_way;
+    private String picture;
     private String objects;
     private String create_user;
 
     public SceneEntity(){}
 
-    public SceneEntity(String title, int create_id, int three_id, String l1, String l2, String l3, String l4, String l5, String l6, String l7, String l8, String description, int level_number) {
+    public SceneEntity(String title, int create_id, int three_id, String l1, String l2, String l3, String l4, String l5,
+                       String l6, String l7, String l8, String description, int level_number, int check_way) {
         this.title = title;
         this.create_id = create_id;
         this.three_id = three_id;
@@ -35,6 +38,7 @@ public class SceneEntity {
         this.l8 = l8;
         this.description = description;
         this.level_number = level_number;
+        this.check_way = check_way;
     }
 
     public String getTitle() {
@@ -173,6 +177,22 @@ public class SceneEntity {
         this.id = id;
     }
 
+    public int getCheck_way() {
+        return check_way;
+    }
+
+    public void setCheck_way(int check_way) {
+        this.check_way = check_way;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -192,6 +212,8 @@ public class SceneEntity {
                 ", description='" + description + '\'' +
                 ", level_number=" + level_number +
                 ", objects='" + objects + '\'' +
+                ", check_way=" + check_way +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }

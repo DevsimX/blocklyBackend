@@ -9,7 +9,7 @@ public class SaveObjectsAndScriptService {
     @Autowired
     private SaveObjectsAndScriptDao saveObjectsAndScriptDao;
 
-    public boolean saveObjectsAndScript(int scene_id,String objects,String script){
-        return saveObjectsAndScriptDao.saveObjectsAndScript(scene_id,objects,script) > 0;
+    public boolean saveObjectsAndScript(int scene_id,String objects,String script, String picture){
+        return saveObjectsAndScriptDao.saveObjectsAndScript(scene_id,objects,script,picture) > 0;
     }
 }

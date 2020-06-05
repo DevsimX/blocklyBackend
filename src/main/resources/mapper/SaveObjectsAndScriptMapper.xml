@@ -4,7 +4,7 @@
 <!-- 配置文件的根元素 -->
 <mapper namespace="blocky.backend.dao.SaveObjectsAndScriptDao">
     <update id="saveObjectsAndScript">
-        update scene set scene.objects = #{objects}, scene.script = #{script}
+        update scene set scene.objects = #{objects}, scene.script = #{script}, scene.picture = #{picture}
         where scene.id = #{scene_id}
     </update>
 </mapper>

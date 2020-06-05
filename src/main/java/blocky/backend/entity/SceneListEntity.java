@@ -6,6 +6,8 @@ public class SceneListEntity {
     private int create_id;
     private String description;
     private int level_number;
+    private int check_way;
+    private String picture;
     private String create_user;
 
     public int getId() {
@@ -54,5 +56,21 @@ public class SceneListEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getCheck_way() {
+        return check_way;
+    }
+
+    public void setCheck_way(int check_way) {
+        this.check_way = check_way;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }
