@@ -63,6 +63,7 @@
         <result property="result" column="result" />
         <result property="check_way" column="check_way" />
         <result property="picture" column="picture" />
+        <result property="level" column="level" />
     </resultMap>
     <select id="getSubmittedSceneByStudentId" resultMap="submittedSceneMap">
         select submits.id as submit_id,
@@ -74,7 +75,8 @@
                submits.teacher_id,
                submits.result,
                scene.check_way,
-               scene.picture
+               scene.picture,
+               history.level
         from scene,users,history,submits
         where student_id = #{student_id} and submits.history_id = history.id and submits.teacher_id = users.id and history.scene_id = scene.id
     </select>

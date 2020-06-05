@@ -11,6 +11,7 @@ public class SubmittedSceneEntity {
     private String result;
     private int check_way;
     private String picture;
+    private int level;
 
     public int getId() {
         return id;
@@ -86,6 +87,14 @@ public class SubmittedSceneEntity {
 
     public String getPicture() {
         return picture;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void setPicture(String picture) {

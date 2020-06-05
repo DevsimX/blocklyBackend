@@ -11,6 +11,7 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
     private int scene_id;
     private String title;
     private String student_name;
+    private int level;
 
     public int getId() {
         return id;
@@ -90,5 +91,13 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
 
     public void setStudent_name(String student_name) {
         this.student_name = student_name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
