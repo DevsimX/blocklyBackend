@@ -74,7 +74,6 @@ public class InsertController {
                                           String script,
                                           int level,
                                           String objects,
-                                          int status,
                                           int check_way,
                                           String score,
                                           String result,
@@ -86,10 +85,10 @@ public class InsertController {
             response.setStatus(400);
         }else {
             if(check_way == 0 && saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects)
-                    && saveSubmitService.saveSubmitAndScoreAndResult(student_id,scene_id,status,Integer.parseInt(score),result))
+                    && saveSubmitService.saveSubmitAndScoreAndResult(student_id,scene_id,2,Integer.parseInt(score),result))
                 resultMap.put("msg","ok");
             else if(check_way == 1 && saveHistoryService.saveHistory(student_id,scene_id,script,level,"submit",objects)
-                    && saveSubmitService.saveSubmit(student_id,scene_id,status))
+                    && saveSubmitService.saveSubmit(student_id,scene_id,1))
                 resultMap.put("msg","ok");
             else {
                 resultMap.put("msg","Database operations fail");
