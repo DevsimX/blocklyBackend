@@ -14,6 +14,7 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
     private int level;
     private int total_level;
     private int check_way;
+    private String mt;
 
     public int getId() {
         return id;
@@ -117,5 +118,13 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
 
     public void setCheck_way(int check_way) {
         this.check_way = check_way;
+    }
+
+    public String getMt() {
+        return mt;
+    }
+
+    public void setMt(String mt) {
+        this.mt = mt;
     }
 }

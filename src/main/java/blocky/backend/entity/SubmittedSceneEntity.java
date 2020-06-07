@@ -13,6 +13,7 @@ public class SubmittedSceneEntity {
     private String picture;
     private int level;
     private int total_level;
+    private String mt;
 
     public int getId() {
         return id;
@@ -108,5 +109,13 @@ public class SubmittedSceneEntity {
 
     public void setTotal_level(int total_level) {
         this.total_level = total_level;
+    }
+
+    public String getMt() {
+        return mt;
+    }
+
+    public void setMt(String mt) {
+        this.mt = mt;
     }
 }
