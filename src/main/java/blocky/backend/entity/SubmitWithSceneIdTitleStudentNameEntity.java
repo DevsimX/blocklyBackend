@@ -12,6 +12,8 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
     private String title;
     private String student_name;
     private int level;
+    private int total_level;
+    private int check_way;
 
     public int getId() {
         return id;
@@ -99,5 +101,21 @@ public class SubmitWithSceneIdTitleStudentNameEntity {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getTotal_level() {
+        return total_level;
+    }
+
+    public void setTotal_level(int total_level) {
+        this.total_level = total_level;
+    }
+
+    public int getCheck_way() {
+        return check_way;
+    }
+
+    public void setCheck_way(int check_way) {
+        this.check_way = check_way;
     }
 }

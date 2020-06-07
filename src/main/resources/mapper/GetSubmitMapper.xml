@@ -15,9 +15,11 @@
         <result property="title" column="title" />
         <result property="student_name" column="name" />
         <result property="level" column="level" />
+        <result property="total_level" column="total_level" />
+        <result property="check_way" column="check_way" />
     </resultMap>
     <select id="getSubmitByTeacherId" resultMap="submitMap">
-        select submits.*,history.scene_id,scene.title,users.name,history.level
+        select submits.*,history.scene_id,scene.title,users.name,history.level,scene.level_number as total_level,scene.check_way
         from submits,history,scene,users
         where submits.teacher_id = #{teacher_id} and history.id = submits.history_id
           and scene.id = history.scene_id and users.id = submits.student_id
