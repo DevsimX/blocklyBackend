@@ -1,13 +1,5 @@
 HELP.md
-target/classes
-target/generated-sources
-target/generated-test-sources
-target/maven-archiver
-target/maven-status
-target/surefire-reports
-target/test-classes
-target/blocklyBackend.jar.original
-!.mvn/wrapper/maven-wrapper.jar
+target/
 !**/src/main/**
 !**/src/test/**
 
